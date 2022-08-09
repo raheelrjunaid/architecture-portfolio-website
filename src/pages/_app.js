@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div className="h-screen relative">
       <Navigation />
-      <main className="container">
+      <main className="container py-14">
         <Component {...pageProps} />
       </main>
       <Footer />

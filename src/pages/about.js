@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export const About = () => (
-  <div className="w-2/3 mx-auto py-14 space-y-9">
+  <div className="w-2/3 mx-auto space-y-9">
     <div className="flex gap-5">
       <div className="relative w-[50em] aspect-[1/1]">
         <Image
