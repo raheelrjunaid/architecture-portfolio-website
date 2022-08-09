@@ -2,6 +2,7 @@ export default {
   name: "siteconfig",
   type: "document",
   title: "Site Settings",
+  __experimental_actions: [/* "create", "delete", */ "update", "publish"],
   fields: [
     {
       name: "artImage",
@@ -17,6 +18,14 @@ export default {
       name: "aboutImage",
       title: "About Image",
       type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "aboutText",
+      title: "About Text",
+      type: "string",
     },
   ],
 };

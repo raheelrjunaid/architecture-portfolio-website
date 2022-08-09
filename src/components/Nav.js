@@ -23,14 +23,14 @@ const NAV_ITEMS = [
   },
   {
     name: "Contact",
-    href: "mailto:example@email.com",
+    href: "/contact",
   },
 ];
 
 export const Navigation = () => {
   const [opened, setOpened] = useState(false);
   return (
-    <div className="container py-5 flex justify-between border-b border-zinc-400/50 items-center">
+    <div className="container max-w-screen-lg py-5 flex justify-between border-b border-zinc-400/50 items-center">
       <Link href="/">
         <h2 className="font-['BioRhyme'] text-2xl text-zinc-800 cursor-pointer select-none">
           DJ

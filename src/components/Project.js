@@ -3,12 +3,16 @@ import { useRouter } from "next/router";
 import { ChevronLeft } from "tabler-icons-react";
 import Image from "next/image";
 import { urlFor } from "../../sanity";
+import Head from "next/head";
 
 export default function Project({ project }) {
   const router = useRouter();
 
   return (
     <article className="text-zinc-900">
+      <Head>
+        <title>Dua Junaid | {project.title}</title>
+      </Head>
       <button
         className="text-zinc-500 hover:text-zinc-900 flex items-center gap-2 transition"
         onClick={() => router.back()}

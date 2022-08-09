@@ -12,7 +12,6 @@ export default () =>
       S.listItem()
         .title("Site config")
         .child(S.editor().schemaType("siteconfig").documentId("siteconfig")),
-      // Add a visual divider (optional)
       S.divider(),
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);
