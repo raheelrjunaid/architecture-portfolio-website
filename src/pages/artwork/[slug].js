@@ -24,6 +24,6 @@ export async function getStaticPaths() {
         slug: project.slug.current,
       },
     })),
-    fallback: false,
+    fallback: "blocking",
   };
 }
