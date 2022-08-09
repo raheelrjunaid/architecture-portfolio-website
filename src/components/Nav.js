@@ -1,5 +1,6 @@
 import { Instagram, Linkedin } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Menu2, X } from "tabler-icons-react";
 
@@ -35,7 +36,7 @@ export const Navigation = () => {
           DJ
         </h2>
       </Link>
-      <div className="gap-5 text-zinc-800 items-center text-sm hidden sm:flex">
+      <div className="gap-5 text-zinc-600 items-center text-sm hidden sm:flex">
         {NAV_ITEMS.map(({ name, href }) => (
           <NavLink key={name} href={href}>
             {name}
@@ -54,11 +55,23 @@ export const Navigation = () => {
   );
 };
 
-const NavLink = ({ children, href }) => (
-  <Link href={href}>
-    <a className="lowercase hover:opacity-80">{children}</a>
-  </Link>
-);
+const NavLink = ({ children, href }) => {
+  const router = useRouter();
+  return (
+    <Link href={href}>
+      <a
+        className={`lowercase hover:opacity-80 ${
+          typeof children === "string" &&
+          (router.pathname === `/${children.toLowerCase()}` ||
+            (router.pathname === "/" && children.toLowerCase() === "home")) &&
+          "underline text-black decoration-zinc-400 underline-offset-1"
+        }`}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
 
 const MobileNav = ({ setOpened }) => (
   <div

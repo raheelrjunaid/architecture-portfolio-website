@@ -5,13 +5,14 @@ import { urlFor } from "../../sanity";
 export const WorkPage = ({ projects }) => {
   const router = useRouter();
   return projects.length ? (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {projects.map((project) => (
         <div key={project.id}>
           <MainImage
             title={project.title}
             imageUrl={urlFor(project.mainImage).url()}
             link={`${router.pathname}/${project.slug.current}`}
+            hideCaption
           />
         </div>
       ))}

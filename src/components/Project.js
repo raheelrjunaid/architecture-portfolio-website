@@ -24,7 +24,7 @@ export default function Project({ project }) {
           {project.description}
         </p>
       </div>
-      <div className="prose prose-blockquote:border-zinc-400 prose-blockquote:text-zinc-600 prose-blockquote:font-normal mx-auto">
+      <div className="prose prose-sm md:prose-base prose-blockquote:border-zinc-400 prose-blockquote:text-zinc-600 prose-blockquote:font-normal mx-auto">
         <PortableText
           value={project.body}
           components={{

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export const MainImage = ({ title, imageUrl, link }) => (
+export const MainImage = ({ title, imageUrl, link, hideCaption }) => (
   <Link href={link || "#"}>
     <div className="flex flex-col w-full">
       <div className="relative w-full aspect-[4/3] bg-center cursor-pointer">
@@ -12,7 +12,11 @@ export const MainImage = ({ title, imageUrl, link }) => (
           objectFit="cover"
           priority
         />
-        <div className="absolute inset-0 items-center justify-center bg-white/80 hover:opacity-100 opacity-0 z-10 transition hidden lg:flex">
+        <div
+          className={`absolute inset-0 items-center text-center justify-center bg-white/80 hover:opacity-100 opacity-0 z-10 transition lg:flex ${
+            hideCaption ? "flex" : "hidden"
+          }`}
+        >
           <h2
             className="text-4xl uppercase font-extralight tracking-widest"
             style={{
@@ -23,7 +27,11 @@ export const MainImage = ({ title, imageUrl, link }) => (
           </h2>
         </div>
       </div>
-      <p className="text-center text-lg font-light my-2 text-zinc-600 lg:hidden">
+      <p
+        className={`text-center text-lg font-light my-2 text-zinc-600 lg:hidden ${
+          hideCaption && "hidden"
+        }`}
+      >
         {title}
       </p>
     </div>

@@ -1,11 +1,13 @@
 import Image from "next/image";
+import Button from "../components/Button";
+import sanityClient, { urlFor } from "../../sanity";
 
-export const About = () => (
-  <div className="w-2/3 mx-auto space-y-9">
-    <div className="flex gap-5">
-      <div className="relative w-[50em] aspect-[1/1]">
+export const About = ({ aboutImage }) => (
+  <div className="max-w-screen-sm mx-auto space-y-9">
+    <div className="flex flex-col sm:flex-row gap-5">
+      <div className="relative aspect-square w-full sm:w-[50em] sm:aspect-auto">
         <Image
-          src="https://dummyimage.com/600x400/000/fff"
+          src={urlFor(aboutImage).url()}
           alt="Main Portrait"
           layout="fill"
           objectFit="cover"
@@ -25,7 +27,18 @@ export const About = () => (
         </p>
       </div>
     </div>
+    <Button type="secondary">Virtual Portfolio</Button>
   </div>
 );
+
+export async function getStaticProps() {
+  const query = `*[_type == "siteconfig"]`;
+  const fields = await sanityClient.fetch(query);
+  return {
+    props: {
+      aboutImage: fields[0].aboutImage,
+    },
+  };
+}
 
 export default About;
