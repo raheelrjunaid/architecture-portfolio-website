@@ -7,11 +7,13 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
       title: "Description",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -21,6 +23,7 @@ export default {
         source: "title",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "mainImage",
@@ -29,23 +32,27 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "isArtwork",
       title: "Is Artwork",
       description: "Is this conceptual work or artwork?",
       type: "boolean",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
       description: "This can be used to order projects in the list",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "body",
       title: "Body",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     },
   ],
 

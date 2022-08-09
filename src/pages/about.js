@@ -5,20 +5,19 @@ import Head from "next/head";
 
 export const About = ({ aboutImage, aboutText }) => {
   return (
-    <div className="max-w-screen-sm mx-auto space-y-9">
+    <div className="max-w-screen-md mx-auto space-y-9">
       <Head>
         <title>Dua Junaid | About</title>
       </Head>
-      <div className="flex flex-col sm:flex-row gap-5 items-start">
-        <div className="relative w-full aspect-square sm:w-[80em] sm:aspect-[3/4]">
-          <Image
-            src={urlFor(aboutImage).url()}
-            alt="Main Portrait"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-        <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row gap-9 items-start">
+        <Image
+          src={urlFor(aboutImage).url()}
+          alt="Main Portrait"
+          width={3000}
+          height={4000}
+          objectFit="cover"
+        />
+        <div className="space-y-6 shrink">
           <h1 className="text-zinc-900 text-3xl uppercase leading-normal">
             hello!
             <br />

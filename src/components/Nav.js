@@ -42,10 +42,10 @@ export const Navigation = () => {
             {name}
           </NavLink>
         ))}
-        <NavLink href="https://www.instagram.com/duajunaid/">
+        <NavLink href="https://www.instagram.com/dua_j_art">
           <Instagram size={20} />
         </NavLink>
-        <NavLink href="https://www.linkedin.com/in/duajunaid/">
+        <NavLink href="http://linkedin.com/in/dua-junaid/">
           <Linkedin size={20} />
         </NavLink>
       </div>
