@@ -38,6 +38,7 @@ export async function getStaticProps() {
     props: {
       aboutImage: fields[0].aboutImage,
     },
+    revalidate: 60,
   };
 }
 

@@ -6,9 +6,10 @@ export default Project;
 export async function getStaticProps({ params }) {
   const query = `*[_type == "project" && slug.current == "${params.slug}" && isArtwork == false]`;
   const project = await sanityClient.fetch(query);
+
   return {
     props: {
-      project: project[0],
+      project: project[0] || {},
     },
     revalidate: 60,
   };
@@ -17,6 +18,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const query = `*[_type == "project"] | order(publishedAt desc)`;
   const projects = await sanityClient.fetch(query);
+
   return {
     paths: projects.map((project) => ({
       params: {

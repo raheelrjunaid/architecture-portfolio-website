@@ -43,5 +43,7 @@ export async function getStaticProps() {
       workImage: fields[0].workImage,
       artworkImage: fields[0].artImage,
     },
+
+    revalidate: 60,
   };
 }

@@ -6,9 +6,10 @@ export default Project;
 export async function getStaticProps({ params }) {
   const query = `*[_type == "project" && slug.current == "${params.slug}" && isArtwork == true]`;
   const project = await sanityClient.fetch(query);
+
   return {
     props: {
-      project: project[0],
+      project: project[0] || {},
     },
     revalidate: 60,
   };
