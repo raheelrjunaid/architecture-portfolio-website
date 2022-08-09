@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import MainImage from "../components/MainImage";
 import sanityClient, { urlFor } from "../../sanity";
 
-export default function Home({ workImage, artworkImage, fields }) {
+export default function Home({ workImage, artworkImage }) {
   return (
     <div>
       <Head>
@@ -37,7 +37,6 @@ export async function getStaticProps() {
     props: {
       workImage: fields[0].workImage,
       artworkImage: fields[0].artImage,
-      fields,
     },
     revalidate: 10,
   };

@@ -29,7 +29,12 @@ export const About = ({ aboutImage, aboutText }) => {
           <p className="text-zinc-800">{aboutText}</p>
         </div>
       </div>
-      <Button variant="secondary">Virtual Portfolio</Button>
+      <Button
+        variant="secondary"
+        href="https://issuu.com/dua_junaid/docs/portfolio"
+      >
+        Virtual Portfolio
+      </Button>
     </div>
   );
 };
