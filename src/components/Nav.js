@@ -32,11 +32,11 @@ export const Navigation = () => {
   return (
     <div className="container max-w-screen-lg py-5 flex justify-between border-b border-zinc-400/50 items-center">
       <Link href="/">
-        <h2 className="font-['BioRhyme'] text-2xl text-zinc-800 cursor-pointer select-none">
+        <h2 className="font-['BioRhyme'] text-2xl text-zinc-800 dark:text-zinc-100 cursor-pointer select-none">
           DJ
         </h2>
       </Link>
-      <div className="gap-5 text-zinc-600 items-center text-sm hidden sm:flex">
+      <div className="gap-5 text-zinc-600 dark:text-zinc-300 items-center text-sm hidden sm:flex">
         {NAV_ITEMS.map(({ name, href }) => (
           <NavLink key={name} href={href}>
             {name}
@@ -49,7 +49,11 @@ export const Navigation = () => {
           <Linkedin size={20} />
         </NavLink>
       </div>
-      <Menu2 className="sm:hidden" size={26} onClick={() => setOpened(true)} />
+      <Menu2
+        className="sm:hidden text-zinc-800 dark:text-zinc-100"
+        size={26}
+        onClick={() => setOpened(true)}
+      />
       {opened && <MobileNav setOpened={setOpened} />}
     </div>
   );
@@ -60,7 +64,7 @@ const NavLink = ({ children, href }) => {
   return (
     <Link href={href}>
       <a
-        className={`lowercase hover:opacity-80 ${
+        className={`lowercase hover:opacity-80 hover:dark:opacity-100 hover:dark:text-zinc-100 ${
           typeof children === "string" &&
           (router.pathname === `/${children.toLowerCase()}` ||
             (router.pathname === "/" && children.toLowerCase() === "home")) &&
@@ -75,13 +79,13 @@ const NavLink = ({ children, href }) => {
 
 const MobileNav = ({ setOpened }) => (
   <div
-    className="z-50 fixed inset-0 bg-zinc-100 sm:hidden flex flex-col text-zinc-700 justify-between"
+    className="z-50 fixed inset-0 bg-zinc-100 dark:bg-zinc-900 sm:hidden flex flex-col text-zinc-700 dark:text-zinc-100 justify-between"
     onClick={() => setOpened(false)}
   >
-    <div className="flex flex-col divide-y divide-zinc-300">
-      <div className="py-5 pr-4 flex gap-2 items-center justify-end">
-        <p className="text-lg text-zinc-800">Close</p>
-        <X className="text-zinc-800" size={26} />
+    <div className="flex flex-col divide-y divide-zinc-300 dark:divide-zinc-600">
+      <div className="py-5 pr-4 flex gap-2 items-center justify-end text-zinc-800 dark:text-zinc-100">
+        <p className="text-lg ">Close</p>
+        <X size={26} />
       </div>
       {NAV_ITEMS.map(({ name, href }) => (
         <Link href={href} key={name}>
