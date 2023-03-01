@@ -20,7 +20,7 @@ export default function Project({ project }) {
         <ChevronLeft size={18} />
         Back
       </button>
-      <div className="my-14 space-y-1">
+      <div className="my-14 space-y-1 text-center">
         <h1 className="text-4xl font-medium leading-tight mb-1 text-zinc-800 dark:text-zinc-100">
           {project.title}
         </h1>
