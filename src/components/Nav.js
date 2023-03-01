@@ -14,8 +14,8 @@ const NAV_ITEMS = [
     href: "/about",
   },
   {
-    name: "Work",
-    href: "/work",
+    name: "Projects",
+    href: "/projects",
   },
   {
     name: "Artwork",
@@ -64,12 +64,11 @@ const NavLink = ({ children, href }) => {
   return (
     <Link href={href}>
       <a
-        className={`lowercase hover:opacity-80 hover:dark:opacity-100 hover:dark:text-zinc-100 ${
-          typeof children === "string" &&
+        className={`uppercase font-['Zilla_Slab'] hover:opacity-80 hover:dark:opacity-100 hover:dark:text-zinc-100 ${typeof children === "string" &&
           (router.pathname === `/${children.toLowerCase()}` ||
             (router.pathname === "/" && children.toLowerCase() === "home")) &&
           "underline text-black decoration-zinc-400 underline-offset-1"
-        }`}
+          }`}
       >
         {children}
       </a>
