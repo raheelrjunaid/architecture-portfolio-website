@@ -14,7 +14,7 @@ export default function Home({ workImage, artworkImage }) {
           <MainImage
             title="Conceptual Work"
             imageUrl={urlFor(workImage).url()}
-            link="/work"
+            link="/projects"
           />
           <MainImage
             title="Artwork"

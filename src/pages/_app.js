@@ -8,14 +8,13 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const darkMode =
-    router.pathname.startsWith("/work/") ||
+    router.pathname.startsWith("/projects/") ||
     router.pathname.startsWith("/artwork/");
 
   return (
     <div
-      className={`min-h-screen grid grid-rows-[auto_1fr_auto] ${
-        darkMode && "dark bg-black"
-      }`}
+      className={`min-h-screen grid grid-rows-[auto_1fr_auto] ${darkMode && "dark bg-black"
+        }`}
       style={{
         backgroundImage:
           !darkMode &&
