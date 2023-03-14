@@ -9,7 +9,8 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const darkMode =
     router.pathname.startsWith("/projects/") ||
-    router.pathname.startsWith("/artwork/");
+    router.pathname.startsWith("/artwork/") ||
+    router.pathname.startsWith("/blog/");
 
   return (
     <div
