@@ -29,6 +29,15 @@ export default function Project({ project }) {
         </p>
       </div>
       <div className="prose dark:prose-invert prose-sm md:prose-base prose-blockquote:border-zinc-400 prose-blockquote:text-zinc-600 prose-blockquote:font-normal mx-auto">
+        {project.mainImage && (
+          <div className="relative w-full aspect-video">
+            <Image
+              src={urlFor(project.mainImage).url()}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        )}
         <PortableText
           value={project.body}
           components={{
