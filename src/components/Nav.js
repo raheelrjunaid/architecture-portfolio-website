@@ -25,10 +25,6 @@ const NAV_ITEMS = [
     name: "Blog",
     href: "/blog",
   },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
 ];
 
 export const Navigation = () => {

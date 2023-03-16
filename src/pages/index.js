@@ -23,7 +23,7 @@ export default function Home({ workImage, artworkImage }) {
           />
         </div>
         <div className="flex gap-4 justify-center">
-          <Button href="/contact">Contact</Button>
+          <Button href="/about">About</Button>
         </div>
       </div>
     </div>
