@@ -30,7 +30,7 @@ export const Blog = ({ posts }) => (
                     {title}
                   </h2>
                   <span className="text-zinc-500 font-['Zilla_Slab']">
-                    {new Date(publishedAt).toLocaleString()}
+                    {new Date(publishedAt).toLocaleDateString()}
                   </span>
                 </article>
               </Link>
