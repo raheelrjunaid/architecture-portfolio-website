@@ -54,6 +54,13 @@ export default {
       type: "blockContent",
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [{ type: "image" }],
+      validation: (Rule) => Rule.required(),
+    },
   ],
 
   initialValue: {
