@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Button from "../components/Button";
 import MainImage from "../components/MainImage";
 import sanityClient, { urlFor } from "../../sanity";
 
@@ -21,9 +20,6 @@ export default function Home({ workImage, artworkImage }) {
             imageUrl={urlFor(artworkImage).url()}
             link="/artwork"
           />
-        </div>
-        <div className="flex gap-4 justify-center">
-          <Button href="/about">About</Button>
         </div>
       </div>
     </div>

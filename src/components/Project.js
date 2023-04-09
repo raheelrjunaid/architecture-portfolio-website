@@ -4,9 +4,17 @@ import { ChevronLeft } from "tabler-icons-react";
 import Image from "next/image";
 import { urlFor } from "../../sanity";
 import Head from "next/head";
+import MainImage from "./MainImage";
+import { useState } from "react";
 
 export default function Project({ project }) {
   const router = useRouter();
+  const [showModal, setShowModal] = useState(null);
+
+  const toggleModal = (image) => {
+    setShowModal(showModal ? null : image);
+    document.body.style.overflow = showModal ? "auto" : "hidden";
+  };
 
   return (
     <article className="text-zinc-900">
@@ -57,6 +65,53 @@ export default function Project({ project }) {
           }}
         />
       </div>
+      {project.images?.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {project.images?.map((image) => (
+            <div key={project.id} onClick={() => toggleModal(image)}>
+              <MainImage
+                title="Expand"
+                imageUrl={urlFor(image).url()}
+                hideCaption
+              />
+            </div>
+          ))}
+        </div>
+      )}
+      {showModal && (
+        <div
+          className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50"
+          onClick={toggleModal}
+        >
+          <div className="absolute top-0 left-0 w-full h-full bg-zinc-900 opacity-75"></div>
+          <div className="bg-white rounded-lg shadow-lg z-10">
+            <div className="relative">
+              <button
+                className="absolute top-0 right-0 m-3 text-zinc-700 hover:text-zinc-900 bg-white/50 rounded-full p-2 transition"
+                onClick={toggleModal}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-4xl">
+                <img src={urlFor(showModal).url()} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </article>
   );
 }
