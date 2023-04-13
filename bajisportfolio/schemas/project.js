@@ -59,7 +59,6 @@ export default {
       title: "Images",
       type: "array",
       of: [{ type: "image" }],
-      validation: (Rule) => Rule.required(),
     },
   ],
 
